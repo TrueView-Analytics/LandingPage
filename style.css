@@ -1,0 +1,214 @@
+/* General & Typography */
+:root {
+    --primary-color: #007bff; /* Blue accent */
+    --dark-bg: #1a1a1a;      /* Dark background */
+    --light-text: #f0f0f0;   /* Light text */
+    --secondary-bg: #2b2b2b; /* Slightly lighter dark for sections */
+    --logo-blue: #3a7bff;    /* A blue similar to your logo */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header & Hero Section */
+.hero {
+    background-color: #0d0d0d; /* Very dark for contrast */
+    text-align: center;
+    padding: 0 0 80px; /* Adjusted padding to make space for a larger logo */
+}
+
+.site-logo {
+    max-width: 650px; /* Increase logo size */
+    height: auto;     /* Maintain aspect ratio */
+    margin-bottom: 30px; /* Space below the logo */
+    display: block;   /* Ensure it behaves like a block element */
+    margin-left: auto; /* Center the logo */
+    margin-right: auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--light-text); /* Ensure title is light */
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* To make padding work correctly */
+}
+
+.cta-button:hover {
+    background: #0056b3;
+}
+
+/* Main Sections */
+.features-section, .contact-form-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 40px;
+    color: var(--light-text);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.feature-item {
+    background: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--logo-blue); /* Use logo blue for feature headings */
+}
+
+/* Contact Form */
+.contact-form-section {
+    background: var(--secondary-bg);
+}
+
+#contactForm {
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #333;
+    color: var(--light-text);
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: #888;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background: #0056b3;
+}
+
+#form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Footer */
+.site-footer {
+    background: #0d0d0d;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 40px 0; /* Increased padding for more space */
+}
+
+.social-icons {
+    margin-bottom: 20px; /* Space below social icons */
+}
+
+.social-icons a {
+    color: rgba(255, 255, 255, 0.7); /* Light grey for icons */
+    font-size: 1.8rem; /* Larger icon size */
+    margin: 0 10px; /* Space between icons */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color); /* Accent color on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .section-heading {
+        font-size: 2rem;
+    }
+    .site-logo {
+        max-width: 180px; /* Smaller logo on smaller screens */
+    }
+    .social-icons a {
+        font-size: 1.5rem;
+    }
+}
