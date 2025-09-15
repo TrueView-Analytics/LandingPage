@@ -7,22 +7,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const formData = new FormData(contactForm);
 
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
         })
         .then(response => {
-            if (response.ok) {
+            console.log("Formspark response:", response);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Response JSON:", data);
+            if (data && data.id) {
                 formStatus.textContent = '¡Gracias por tu mensaje! Nos pondremos en contacto contigo en la mayor brevedad.';
                 formStatus.style.color = 'green';
                 contactForm.reset();
             } else {
-                return response.json().then(data => {
-                    throw new Error(data.message || 'Error al enviar el mensaje.');
-                });
+                throw new Error(data.message || 'Error desconocido');
             }
         })
         .catch(error => {
