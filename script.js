@@ -3,29 +3,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const formStatus = document.getElementById('form-status');
 
     contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+        //event.preventDefault();
 
         const formData = new FormData(contactForm);
 
-      fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
         })
         .then(response => {
-            console.log("Formspark response:", response);
-            return response.json();
-        })
-        .then(data => {
-            console.log("Response JSON:", data);
-            if (data && data.id) {
+            if (response.ok) {
                 formStatus.textContent = '¡Gracias por tu mensaje! Nos pondremos en contacto contigo en la mayor brevedad.';
                 formStatus.style.color = 'green';
                 contactForm.reset();
             } else {
-                throw new Error(data.message || 'Error desconocido');
+                return response.json().then(data => {
+                    throw new Error(data.message || 'Error al enviar el mensaje.');
+                });
             }
         })
         .catch(error => {
