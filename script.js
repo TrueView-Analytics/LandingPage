@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Collapsible blocks for info section
+    const collapsibles = document.querySelectorAll('.collapsible');
+    collapsibles.forEach(btn => {
+        btn.addEventListener('click', function () {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            if (this.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.padding = '16px 22px';
+            } else {
+                content.style.maxHeight = null;
+                content.style.padding = '0 22px';
+            }
+        });
+    });
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('form-status');
 

@@ -1,9 +1,164 @@
+/* Header background image with overlay */
+.hero {
+    background: linear-gradient(rgba(20, 24, 36, 0.7), rgba(20, 24, 36, 0.7)), url('images/main.jpg') center center/cover no-repeat;
+    position: relative;
+}
+/* Center text in info-section */
+.info-section .section-heading {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+}
+.info-left {
+    align-items: center;
+    text-align: center;
+}
+.collapsible-block {
+    width: 100%;
+}
+.collapsible, .collapsible + .content {
+    text-align: center;
+}
+/* Info Section: Collapsible Blocks and Image (Updated Layout) */
+.info-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.info-blocks-image {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+.info-left {
+    flex: 1 1 340px;
+    min-width: 320px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.info-right {
+    flex: 1 1 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+}
+.info-image {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    background: #fff;
+    padding: 16px;
+}
+.info-title-below {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+.info-title-below .section-heading {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+@media (max-width: 900px) {
+    .info-blocks-image {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+    }
+    .info-title-below {
+        margin-top: 24px;
+    }
+}
+/* Info Section: Collapsible Blocks and Image */
+.info-section {
+    /*background: var(--info-bg);*/
+    padding: 80px 0;
+}
+.info-flex {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.info-left {
+    flex: 1 1 340px;
+    min-width: 320px;
+    max-width: 500px;
+}
+.info-right {
+    flex: 1 1 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+}
+.info-image {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    background: #fff;
+    padding: 16px;
+}
+.collapsible-block {
+    margin-bottom: 18px;
+}
+.collapsible {
+    background-color: var(--info-bg);
+    color: #fff;
+    cursor: pointer;
+    padding: 18px 22px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+.collapsible:hover, .collapsible.active {
+    background-color: #0056b3;
+}
+.content {
+    padding: 0 22px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+    background: #23272f;
+    border-radius: 0 0 6px 6px;
+    color: var(--light-text);
+}
+.collapsible.active + .content {
+    padding: 16px 22px;
+    max-height: 200px;
+}
+@media (max-width: 900px) {
+    .info-flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .info-right {
+        margin-top: 32px;
+    }
+}
 /* General & Typography */
 :root {
     --primary-color: #007bff; /* Blue accent */
     --dark-bg: #1a1a1a;      /* Dark background */
     --light-text: #f0f0f0;   /* Light text */
     --secondary-bg: #2b2b2b; /* Slightly lighter dark for sections */
+    --info-bg: #1e2a44;      /* More distinct blue background for info section */
     --logo-blue: #3a7bff;    /* A blue similar to your logo */
 }
 
@@ -98,7 +253,7 @@ body {
 }
 
 .feature-item {
-    background: var(--secondary-bg);
+    background: var(--info-bg);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
