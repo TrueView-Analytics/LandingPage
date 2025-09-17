@@ -56,13 +56,32 @@
     min-width: 260px;
 }
 .info-image {
-    max-width: 350px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-    background: #fff;
-    padding: 16px;
+    animation: floatY 3.5s ease-in-out infinite alternate;
+@keyframes floatY {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-18px);
+    }
 }
+    max-width: 480px;
+    width: 100%;
+    border-radius: 18px;
+    background: transparent;
+    padding: 16px;
+    margin-left: 32px;
+    box-shadow: 0 12px 32px 0 rgba(30,40,68,0.25), 0 2px 8px 0 rgba(0,0,0,0.10);
+    transition: box-shadow 0.3s, transform 0.3s;
+    z-index: 2;
+    position: relative;
+}
+
+.info-image:hover {
+    box-shadow: 0 20px 48px 0 rgba(30,40,68,0.32), 0 4px 16px 0 rgba(0,0,0,0.13);
+    transform: translateY(-8px) translateX(88px) scale(1.53);
+}
+
 .info-title-below {
     width: 100%;
     display: flex;
@@ -74,6 +93,9 @@
     padding-bottom: 0;
 }
 @media (max-width: 900px) {
+    .info-image {
+        margin-left: 0;
+    }
     .info-blocks-image {
         flex-direction: column;
         align-items: stretch;
@@ -108,12 +130,7 @@
     min-width: 260px;
 }
 .info-image {
-    max-width: 350px;
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-    background: #fff;
-    padding: 16px;
+    /* Duplicate rule removed. See above for main .info-image styling. */
 }
 .collapsible-block {
     margin-bottom: 18px;
