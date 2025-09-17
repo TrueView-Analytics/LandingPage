@@ -79,7 +79,7 @@
 
 .info-image:hover {
     box-shadow: 0 20px 48px 0 rgba(30,40,68,0.32), 0 4px 16px 0 rgba(0,0,0,0.13);
-    transform: translateY(-8px) translateX(88px) scale(1.53);
+    transform: translateY(-8px) translateX(100px) scale(1.53);
 }
 
 .info-title-below {
