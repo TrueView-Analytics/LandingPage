@@ -1,11 +1,112 @@
+/* Footer Rediseñado */
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+.footer-col {
+    flex: 1 1 30%;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.footer-col-logo {
+    align-items: flex-start;
+}
+.footer-logo {
+    max-width: 180px;
+    margin-bottom: 12px;
+}
+.footer-desc {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin: 0;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: 0;
+    width: auto;
+    gap: 0;
+    flex-direction: row;
+    display: flex;
+}
+.footer-contact-title {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin-left: 0;
+    white-space: nowrap;
+    color: var(--primary-color);
+    min-width: 20px;
+}
+.footer-contact-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-contact-item a:hover {
+    color: var(--primary-color);
+}
+.footer-col-legal {
+    /*align-items: flex-end;*/
+    width: 100%;
+    gap: 8px;
+}
+.footer-privacy {
+    color: #e0e0e0;
+    text-decoration: underline;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.footer-privacy:hover {
+    color: var(--primary-color);
+}
+.footer-copyright {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    /*margin-left: 12px;*/
+}
+@media (max-width: 900px) {
+    .footer-flex {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+    .footer-col-legal {
+        align-items: flex-start;
+    }
+    .footer-copyright {
+        margin-left: 0;
+    }
+}
 /* Info section background image with overlay */
 .info-section {
-    background: linear-gradient(rgba(20, 24, 36, 0.7), rgba(20, 24, 36, 0.7)), url('images/info.jpg') center center/cover no-repeat;
+    background: linear-gradient(rgba(20, 24, 36, 0.7), rgba(20, 24, 36, 0.7)), url('images/tiny.png') center center/cover no-repeat;
     position: relative;
 }
 /* Header background image with overlay */
 .hero {
     background: linear-gradient(rgba(20, 24, 36, 0.7), rgba(20, 24, 36, 0.7)), url('images/main.jpg') center center/cover no-repeat;
+    position: relative;
+}
+.hero-Privacy {
+    background: linear-gradient(rgba(20, 24, 36, 0.7), rgba(20, 24, 36, 0.7)), url('images/main2.jpg') center center/cover no-repeat;
     position: relative;
 }
 /* Center text in info-section */
@@ -15,6 +116,7 @@
     display: block;
     margin-left: 0;
     margin-right: 0;
+    color: #fff;
 }
 .info-left {
     align-items: center;
@@ -71,14 +173,14 @@
     background: transparent;
     padding: 16px;
     margin-left: 32px;
-    box-shadow: 0 12px 32px 0 rgba(30,40,68,0.25), 0 2px 8px 0 rgba(0,0,0,0.10);
+    box-shadow: 0 12px 32px 0 rgba(30, 40, 68 / 0%), 0 2px 8px 0 rgba(0, 0, 0 / 0%);
     transition: box-shadow 0.3s, transform 0.3s;
     z-index: 2;
     position: relative;
 }
 
 .info-image:hover {
-    box-shadow: 0 20px 48px 0 rgba(30,40,68,0.32), 0 4px 16px 0 rgba(0,0,0,0.13);
+    /*box-shadow: 0 20px 48px 0 rgba(30,40,68,0.32), 0 4px 16px 0 rgba(0,0,0,0.13);*/
     transform: translateY(-8px) translateX(100px) scale(1.53);
 }
 
@@ -177,9 +279,9 @@
 /* General & Typography */
 :root {
     --primary-color: #007bff; /* Blue accent */
-    --dark-bg: #1a1a1a;      /* Dark background */
+    --light-bg: #f0f0f0;      /* Dark background */
     --light-text: #f0f0f0;   /* Light text */
-    --secondary-bg: #2b2b2b; /* Slightly lighter dark for sections */
+    --secondary-bg: #f0f0f0;/* Slightly lighter dark for sections */
     --info-bg: #1e2a44;      /* More distinct blue background for info section */
     --logo-blue: #3a7bff;    /* A blue similar to your logo */
 }
@@ -189,8 +291,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--dark-bg);
-    color: var(--light-text);
+    background-color: var(--light-bg);
+    color: #0d0d0d;
 }
 
 .container {
@@ -201,6 +303,13 @@ body {
 
 /* Header & Hero Section */
 .hero {
+    background-color: #0d0d0d; /* Very dark for contrast */
+    text-align: center;
+    padding: 0 0 80px; /* Adjusted padding to make space for a larger logo */
+}
+
+/* Header & Hero Section */
+.hero-Privacy {
     background-color: #0d0d0d; /* Very dark for contrast */
     text-align: center;
     padding: 0 0 80px; /* Adjusted padding to make space for a larger logo */
@@ -256,14 +365,14 @@ body {
     font-weight: 700;
     margin-bottom: 20px;
     padding-bottom: 40px;
-    color: var(--light-text);
+    color: #0d0d0d;
 }
 
 .section-description {
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto 50px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #0d0d0d;
 }
 
 /* Features Grid */
@@ -275,22 +384,22 @@ body {
 }
 
 .feature-item {
-    background: var(--info-bg);
+    background: #fff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2)
 }
 
 .feature-item h3 {
     margin-top: 0;
     font-size: 1.4rem;
     font-weight: 600;
-    color: var(--logo-blue); /* Use logo blue for feature headings */
+    color: #0d0d0d; /* Use logo blue for feature headings */
 }
 
 /* Contact Form */
 .contact-form-section {
-    background: var(--secondary-bg);
+    background: #f0f0f0;
 }
 
 #contactForm {
@@ -312,9 +421,9 @@ body {
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 15px;
-    border: 1px solid #444;
+    border: 0.5px solid #0d0d0d4d;
     border-radius: 5px;
-    background: #333;
+    background:#fff;
     color: var(--light-text);
     box-sizing: border-box;
 }
@@ -349,9 +458,9 @@ body {
 
 /* Footer */
 .site-footer {
-    background: #0d0d0d;
+    background: #1e2a44;
     color: rgba(255, 255, 255, 0.6);
-    text-align: center;
+    /*text-align: center;*/
     padding: 40px 0; /* Increased padding for more space */
 }
 
@@ -388,4 +497,76 @@ body {
     .social-icons a {
         font-size: 1.5rem;
     }
+}
+
+
+/* TEEEEEEEST*/
+
+/* Initially hide all feature-items */
+.feature-item {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(30px); /* Start below the container */
+}
+
+/* When the container becomes visible, apply the "appear" animation */
+.features-grid.show .feature-item {
+  animation: appear 1s forwards;
+}
+
+/* Define the animation for the fade-in and move-up effect */
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End in place */
+  }
+}
+
+/* When the container is hidden, apply the "disappear" animation */
+.features-grid.hide .feature-item {
+  animation: disappear 1s forwards;
+}
+
+/* Define the animation for the fade-out and move-up effect */
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    transform: translateY(0); /* Stay in place */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px); /* Move up and fade out */
+  }
+}
+
+/* Add delay to stagger the appearance of items */
+.feature-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.feature-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-item:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.feature-item:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.feature-item:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.feature-item:nth-child(6) {
+  animation-delay: 1s;
 }

@@ -46,4 +46,34 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Form submission error:', error);
         });
     });
+
+    //TEST FOR GRID ITEMS ANIMATION ON SCROLL
+    // Select the grid container
+    const gridContainer = document.querySelector('.features-grid');
+
+    // Create an Intersection Observer to observe when the grid enters and exits the viewport
+    const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        // When the grid comes into view, add the 'show' class to trigger animations
+        gridContainer.classList.add('show');
+        gridContainer.classList.remove('hide'); // Ensure hide is removed when visible
+        } else {
+        // When the grid leaves the viewport, add the 'hide' class to trigger disappear animations
+        gridContainer.classList.add('hide');
+        gridContainer.classList.remove('show'); // Remove the show class when not visible
+        }
+    });
+    }, {
+    threshold: 0.5  // Trigger when 50% of the grid is visible
+    });
+
+    // Start observing the grid container
+    observer.observe(gridContainer);
+
+
+
+
+
+
 });
