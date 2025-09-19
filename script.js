@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Collapsible blocks for info section (open on click or hover, close on unhover)
     const collapsibles = document.querySelectorAll('.collapsible');
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     collapsibles.forEach(btn => {
         const content = btn.nextElementSibling;
-        // Click to toggle
-        btn.addEventListener('click', function () {
+        // Click/tap to toggle (always enabled)
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
             if (btn.classList.contains('active')) {
                 btn.classList.remove('active');
                 content.style.maxHeight = null;
@@ -15,24 +17,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 content.style.padding = '16px 22px';
             }
         });
-        // Hover to open
-        btn.addEventListener('mouseenter', function () {
-            btn.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + 'px';
-            content.style.padding = '16px 22px';
-        });
-        // Unhover to close
-        btn.addEventListener('mouseleave', function () {
-            btn.classList.remove('active');
-            content.style.maxHeight = null;
-            content.style.padding = '0 22px';
-        });
-        // Also close when mouse leaves the content area
-        content.addEventListener('mouseleave', function () {
-            btn.classList.remove('active');
-            content.style.maxHeight = null;
-            content.style.padding = '0 22px';
-        });
+        if (!isTouchDevice) {
+            // Hover to open (only on non-touch devices)
+            btn.addEventListener('mouseenter', function () {
+                btn.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.padding = '16px 22px';
+            });
+            // Unhover to close
+            btn.addEventListener('mouseleave', function () {
+                btn.classList.remove('active');
+                content.style.maxHeight = null;
+                content.style.padding = '0 22px';
+            });
+            // Also close when mouse leaves the content area
+            content.addEventListener('mouseleave', function () {
+                btn.classList.remove('active');
+                content.style.maxHeight = null;
+                content.style.padding = '0 22px';
+            });
+        }
     });
 
     // Contact form submission
