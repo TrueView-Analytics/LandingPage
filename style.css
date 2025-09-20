@@ -105,7 +105,7 @@
 }
 /* Header background image with overlay */
 .hero {
-    background: linear-gradient(rgba(20, 24, 36, 0.7), rgba(20, 24, 36, 0.7)), url('images/main.jpg') center center/cover no-repeat;
+    background: linear-gradient(#0d0d0d96, rgba(20, 24, 36, 0.7)), url('images/main.jpg') center center/cover no-repeat;
     position: relative;
 }
 .hero-Privacy {
@@ -504,7 +504,7 @@ body {
         font-size: 2rem;
     }
     .site-logo {
-        max-width: 180px; /* Smaller logo on smaller screens */
+        max-width: 240px; /* Slightly bigger logo on mobile */
     }
     .social-icons a {
         font-size: 1.5rem;
