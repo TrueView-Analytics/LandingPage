@@ -53,19 +53,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Features grid animation on scroll
     const gridContainer = document.querySelector('.features-grid');
     if (gridContainer) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    gridContainer.classList.add('show');
-                    gridContainer.classList.remove('hide');
-                } else {
-                    gridContainer.classList.add('hide');
-                    gridContainer.classList.remove('show');
-                }
+            // Detect mobile device (max-width: 767px)
+            const isMobile = window.matchMedia('(max-width: 767px)').matches;
+            const thresholdValue = isMobile ? 0.1 : 0.5;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gridContainer.classList.add('show');
+                        gridContainer.classList.remove('hide');
+                    } else {
+                        gridContainer.classList.add('hide');
+                        gridContainer.classList.remove('show');
+                    }
+                });
+            }, {
+                threshold: thresholdValue
             });
-        }, {
-            threshold: 0.5
-        });
-        observer.observe(gridContainer);
+            observer.observe(gridContainer);
     }
 });
